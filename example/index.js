@@ -1,4 +1,4 @@
-import * as Sudoku from '../src/index.js';
+import Sudoku from 'src/Manager.js';
 
 const input = [
   0, 0, 0,  0, 0, 0,  0, 0, 2,
@@ -14,7 +14,7 @@ const input = [
   0, 1, 0,  0, 7, 6,  0, 0, 0
 ];
 
-const sudoku = new Sudoku.Manager();
+const sudoku = new Sudoku();
 sudoku.set(input);
 
 const result = sudoku.solve();
