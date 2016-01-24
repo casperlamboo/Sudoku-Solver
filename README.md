@@ -2,7 +2,7 @@
 Javascrip Sudoku Solver
 
 ```javascript
-import * as Sudoku from 'casperlamboo/Sudoku-Solver';
+import SudokuSolver from 'casperlamboo/Sudoku-Solver';
 
 // input is an array, unknown numbers should be declared as 0
 const input = [
@@ -19,10 +19,10 @@ const input = [
   0, 1, 0,  0, 7, 6,  0, 0, 0
 ];
 
-const sudoku = new Sudoku.Manager();
-sudoku.set(input);
+const sudokuSolver = new SudokuSolver();
+sudokuSolver.set(input);
 
-const result = sudoku.solve();
+const result = sudokuSolver.solve();
 
 // result = [
 //   9, 8, 3,  1, 5, 7,  4, 6, 2, 
