@@ -4,6 +4,7 @@ Javascrip Sudoku Solver
 ```javascript
 import * as Sudoku from 'casperlamboo/Sudoku-Solver';
 
+// input is an array, unknown numbers should be declared as 0
 const input = [
   0, 0, 0,  0, 0, 0,  0, 0, 2,
   0, 0, 0,  6, 0, 0,  7, 0, 0,
