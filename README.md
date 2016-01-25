@@ -1,5 +1,5 @@
 # Sudoku-Solver
-Javascrip Sudoku Solver
+JavaScript Sudoku Solver
 
 ```javascript
 import SudokuSolver from 'casperlamboo/Sudoku-Solver';
