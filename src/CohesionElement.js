@@ -11,8 +11,8 @@ export default class CohesionElement {
   }
 
   solve () {
-    this.checkDuplicate();
-    this.checkSolved();
+    this._checkDuplicate();
+    this._checkSolved();
 
     if (!this.duplicates && !this.solved) {
       for (const cell of this.cells) {
@@ -21,7 +21,7 @@ export default class CohesionElement {
           this.removeNumber(cell.number);
         }
 
-        this.checkFull();
+        this.checkAll();
       };
     }
   }
@@ -34,12 +34,12 @@ export default class CohesionElement {
         }
       };
 
-      this.checkSolved();
-      this.checkDuplicate();
+      this._checkSolved();
+      this._checkDuplicate();
     }
   }
 
-  checkFull () {
+  checkAll () {
     if (!this.solved && !this.duplicates) {
       for (let i = 1; i <= 9; i ++) {
         const empty = [];
@@ -59,29 +59,29 @@ export default class CohesionElement {
         }
       }
 
-      this.checkSolved();
-      this.checkDuplicate();
+      this._checkSolved();
+      this._checkDuplicate();
     }
   }
 
-  checkDuplicate () {
-    this.duplicates = false;
+  _checkDuplicate () {
+    let duplicates = false;
     const numbersChecked = [];
 
     for (const cell of this.cells) {
       if (cell.solved) {
         if (numbersChecked.indexOf(cell.number) !== -1) {
-          this.duplicates = true;
+          duplicates = true;
           break;
         }
         numbersChecked.push(cell.number);
       }
     }
 
-    return this.duplicates;
+    this.duplicates = duplicates;
   }
 
-  checkSolved () {
+  _checkSolved () {
     const numbersLeft = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
     for (const cell of this.cells) {
@@ -94,7 +94,5 @@ export default class CohesionElement {
     }
 
     this.solved = (numbersLeft.length === 0 && this.duplicates === false);
-
-    return this.solved;
   }
 }

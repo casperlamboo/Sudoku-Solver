@@ -20,6 +20,7 @@ export default class Manager {
     ] = this.cells;
 
     this.cohesionElements = [
+      // rows
       new CohesionElement( c0,  c1,  c2,  c3,  c4,  c5,  c6,  c7,  c8),
       new CohesionElement( c9, c10, c11, c12, c13, c14, c15, c16, c17),
       new CohesionElement(c18, c19, c20, c21, c22, c23, c24, c25, c26),
@@ -29,8 +30,7 @@ export default class Manager {
       new CohesionElement(c54, c55, c56, c57, c58, c59, c60, c61, c62),
       new CohesionElement(c63, c64, c65, c66, c67, c68, c69, c70, c71),
       new CohesionElement(c72, c73, c74, c75, c76, c77, c78, c79, c80),
-
-      //collums
+      // collums
       new CohesionElement( c0,  c9, c18, c27, c36, c45, c54, c63, c72),
       new CohesionElement( c1, c10, c19, c28, c37, c46, c55, c64, c73),
       new CohesionElement( c2, c11, c20, c29, c38, c47, c56, c65, c74),
@@ -40,8 +40,7 @@ export default class Manager {
       new CohesionElement( c6, c15, c24, c33, c42, c51, c60, c69, c78),
       new CohesionElement( c7, c16, c25, c34, c43, c52, c61, c70, c79),
       new CohesionElement( c8, c17, c26, c35, c44, c53, c62, c71, c80),
-
-      //squares
+      // squares
       new CohesionElement( c0,  c1,  c2,  c9, c10, c11, c18, c19, c20),
       new CohesionElement( c3,  c4,  c5, c12, c13, c14, c21, c22, c23),
       new CohesionElement( c6,  c7,  c8, c15, c16, c17, c24, c25, c26),
@@ -94,7 +93,7 @@ export default class Manager {
         usedRandom.removePlausibility(usedRandom.possibilities[0]);
       }
       else {
-        for(let i = 0; i < this.cells.length; i ++) {
+        for (let i = 0; i < this.cells.length; i ++) {
           const cell = this.cells[i];
           const resultCell = sampleResult[i];
           if (!cell.solved && resultCell !== 0) {

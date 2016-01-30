@@ -18,15 +18,15 @@ export default class Cell {
 
   removePlausibility (number) {
     const index = this.possibilities.indexOf(number);
-    if (index !== -1){
+    if (index !== -1) {
       this.possibilities.splice(index, 1);
 
       if (this.possibilities.length === 1) {
         this.setSolved(this.possibilities[0]);
       }
-      else{
+      else {
         for (const cohesionElement of this.cohesionElements) {
-          cohesionElement.checkFull();
+          cohesionElement.checkAll();
         }
       }
     }
@@ -39,7 +39,7 @@ export default class Cell {
 
     for (const cohesionElement of this.cohesionElements) {
       cohesionElement.removeNumber(number);
-      cohesionElement.checkFull();
+      cohesionElement.checkAll();
     }
   }
 }
