@@ -30,7 +30,7 @@ export default class CohesionElement {
     if (!this.solved && !this.duplicates ){
       for (const cell of this.cells) {
         if (!cell.solved) {
-          cell.removePlausibility(number);
+          cell.removePossibility(number);
         }
       };
 

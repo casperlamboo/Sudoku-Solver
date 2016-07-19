@@ -90,7 +90,7 @@ export default class Manager {
       const sampleResult = sample.solve();
 
       if (sample.duplicates) {
-        usedRandom.removePlausibility(usedRandom.possibilities[0]);
+        usedRandom.removePossibility(usedRandom.possibilities[0]);
       }
       else {
         for (let i = 0; i < this.cells.length; i ++) {

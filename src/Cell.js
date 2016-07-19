@@ -16,7 +16,7 @@ export default class Cell {
     this.cohesionElements.push(cohesionElement);
   }
 
-  removePlausibility (number) {
+  removePossibility (number) {
     const index = this.possibilities.indexOf(number);
     if (index !== -1) {
       this.possibilities.splice(index, 1);
