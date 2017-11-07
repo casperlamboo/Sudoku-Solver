@@ -1,22 +1,18 @@
 export default class Cell {
-  constructor (number) {
+  constructor(number) {
     this.cohesionElements = [];
 
-    this.set(number);
-  }
-
-  set (number = 0) {
     this.number = number;
     this.solved = (number !== 0) ? true : false;
 
     this.possibilities = this.solved ? [] : [1, 2, 3, 4, 5, 6, 7, 8, 9];
   }
 
-  addCohesion (cohesionElement) {
+  addCohesion(cohesionElement) {
     this.cohesionElements.push(cohesionElement);
   }
 
-  removePossibility (number) {
+  removePossibility(number) {
     const index = this.possibilities.indexOf(number);
     if (index !== -1) {
       this.possibilities.splice(index, 1);
@@ -32,7 +28,7 @@ export default class Cell {
     }
   }
 
-  setSolved (number) {
+  setSolved(number) {
     this.solved = true;
     this.number = number;
     this.possibilities = [number];

@@ -1,4 +1,4 @@
-import Sudoku from 'src/Manager.js';
+const solve = require('../lib').default;
 
 const input = [
   0, 0, 0,  0, 0, 0,  0, 0, 2,
@@ -14,17 +14,43 @@ const input = [
   0, 1, 0,  0, 7, 6,  0, 0, 0
 ];
 
-const sudoku = new Sudoku();
-sudoku.set(input);
+// // this also works!
+// const input = [
+//   0, 0, 0,  0, 0, 0,  0, 0, 0,
+//   0, 0, 0,  0, 0, 0,  0, 0, 0,
+//   0, 0, 0,  0, 0, 0,  0, 0, 0,
+//
+//   0, 0, 0,  0, 0, 0,  0, 0, 0,
+//   0, 0, 0,  0, 0, 0,  0, 0, 0,
+//   0, 0, 0,  0, 0, 0,  0, 0, 0,
+//
+//   0, 0, 0,  0, 0, 0,  0, 0, 0,
+//   0, 0, 0,  0, 0, 0,  0, 0, 0,
+//   0, 0, 0,  0, 0, 0,  0, 0, 0,
+// ];
 
-const result = sudoku.solve();
+console.log('---input----');
+logSudoku(input);
 
-const cells = document.getElementById('sudoku').getElementsByTagName('td');
+const result = solve(input);
 
-for (let i = 0; i < result.length; i ++) {
-  cells[i].innerHTML = result[i];
+console.log('---result---');
+logSudoku(result);
 
-  if (input[i] !== 0) {
-    cells[i].style.fontWeight = 'bold';
+function logSudoku(cells) {
+  if (cells === null) {
+    console.log('unable to solve sudoku');
+    return;
   }
+
+  let output = '';
+  for (let i = 0; i < cells.length; i ++) {
+    if (i !== 0 && i % 3 === 0) output += '|';
+    if (i !== 0 && i % 9 === 0) output += '\n';
+    if (i !== 0 && i % 27 === 0) output += '---|---|---\n';
+    const cell = cells[i];
+    output += cell === 0 ? ' ' : cell;
+  }
+  output += '|';
+  console.log(output);
 }

@@ -1,5 +1,5 @@
 export default class CohesionElement {
-  constructor (...cells) {
+  constructor(...cells) {
     for (const cell of cells) {
       cell.addCohesion(this);
     }
@@ -10,7 +10,7 @@ export default class CohesionElement {
     this.duplicates = false;
   }
 
-  solve () {
+  solve() {
     this._checkDuplicate();
     this._checkSolved();
 
@@ -26,8 +26,8 @@ export default class CohesionElement {
     }
   }
 
-  removeNumber (number) {
-    if (!this.solved && !this.duplicates ){
+  removeNumber(number) {
+    if (!this.solved && !this.duplicates) {
       for (const cell of this.cells) {
         if (!cell.solved) {
           cell.removePossibility(number);
@@ -39,7 +39,7 @@ export default class CohesionElement {
     }
   }
 
-  checkAll () {
+  checkAll() {
     if (!this.solved && !this.duplicates) {
       for (let i = 1; i <= 9; i ++) {
         const empty = [];
@@ -48,8 +48,7 @@ export default class CohesionElement {
         for (const cell of this.cells) {
           if (cell.number === i) {
             check = false;
-          }
-          else if (!cell.solved && cell.possibilities.indexOf(i) !== -1) {
+          } else if (!cell.solved && cell.possibilities.indexOf(i) !== -1) {
             empty.push(cell);
           }
         };
@@ -64,7 +63,7 @@ export default class CohesionElement {
     }
   }
 
-  _checkDuplicate () {
+  _checkDuplicate() {
     let duplicates = false;
     const numbersChecked = [];
 
@@ -81,7 +80,7 @@ export default class CohesionElement {
     this.duplicates = duplicates;
   }
 
-  _checkSolved () {
+  _checkSolved() {
     const numbersLeft = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
     for (const cell of this.cells) {
@@ -93,6 +92,6 @@ export default class CohesionElement {
       }
     }
 
-    this.solved = (numbersLeft.length === 0 && this.duplicates === false);
+    this.solved = numbersLeft.length === 0 && this.duplicates === false;
   }
 }

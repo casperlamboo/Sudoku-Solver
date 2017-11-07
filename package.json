@@ -1,13 +1,39 @@
 {
-  "main": "./Manager.js",
+  "name": "sudoku-solver",
+  "version": "1.0.0",
+  "description": "Sudoku Solver",
+  "main": "lib/index.js",
+  "module": "module/index.js",
+  "esnext": "src/index.js",
   "directories": {
-    "lib": "src"
+    "example": "example"
   },
-  "jspm": {
-    "devDependencies": {
-      "babel": "npm:babel-core@^5.8.24",
-      "babel-runtime": "npm:babel-runtime@^5.8.24",
-      "core-js": "npm:core-js@^1.1.4"
-    }
+  "scripts": {
+    "test": "node example",
+    "prepare": "npm run build",
+    "build": "npm run build:main && npm run build:module",
+    "build:main": "BABEL_ENV=main babel src -s -d lib",
+    "build:module": "BABEL_ENV=module babel src -s -d module"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/casperlamboo/Sudoku-Solver.git"
+  },
+  "keywords": [
+    "sudoku"
+  ],
+  "author": "Casper Lamboo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/casperlamboo/Sudoku-Solver/issues"
+  },
+  "homepage": "https://github.com/casperlamboo/Sudoku-Solver#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-latest": "^6.24.1"
+  },
+  "dependencies": {
+    "babel-plugin-export-default-module-exports": "0.0.4",
+    "babel-plugin-transform-es2015-modules-umd": "^6.24.1"
   }
 }
