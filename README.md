@@ -21,7 +21,7 @@ const input = [
   0, 1, 0,  0, 7, 6,  0, 0, 0
 ];
 
-const { result } = solve(input);
+const result = solve(input);
 
 // result = [
 //   9, 8, 3,  1, 5, 7,  4, 6, 2,
