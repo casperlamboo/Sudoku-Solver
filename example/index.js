@@ -29,12 +29,12 @@ const input = [
 //   0, 0, 0,  0, 0, 0,  0, 0, 0,
 // ];
 
-console.log('---input----');
+console.log('--------input--------');
 logSudoku(input);
 
 const result = solve(input);
 
-console.log('---result---');
+console.log('--------result-------');
 logSudoku(result);
 
 function logSudoku(cells) {
@@ -45,12 +45,20 @@ function logSudoku(cells) {
 
   let output = '';
   for (let i = 0; i < cells.length; i ++) {
-    if (i !== 0 && i % 3 === 0) output += '|';
+    if (i === 0) {
+      output += '\n';
+    } else if (i % 27 === 0) {
+      output += '\n------+-------+------';
+    } else if (i % 9 === 0) {
+      output += '\n';
+    } else if (i % 3 === 0) {
+      output += '| ';
+    }
+    if (i !== 0 && i % 27 === 0)
     if (i !== 0 && i % 9 === 0) output += '\n';
-    if (i !== 0 && i % 27 === 0) output += '---|---|---\n';
     const cell = cells[i];
-    output += cell === 0 ? ' ' : cell;
+    output += `${cell === 0 ? ' ' : cell} `;
   }
-  output += '|';
+  output += '\n';
   console.log(output);
 }
